@@ -1,7 +1,6 @@
 import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
-import v1.ArduinoML;
-import v1.BrickBuilder;
-import v1.StateBuilder;
+
+import v2.*;
 
 /**
  * @author Marc Karassev
@@ -13,11 +12,28 @@ public class Switch_v2 extends ArduinoML {
         // reprise du DSL Scala de Mosser sans les declare
         BrickBuilder button = aSensor().named("button").boundToPin(9);
         BrickBuilder led = anActuator().named("led").boundToPin(12);
-        StateBuilder on = state().named("on").executing(action().brick(led).value(SIGNAL.HIGH));
-        StateBuilder off = state().named("off").executing(action().brick(led).value(SIGNAL.LOW)); // dégueu mais respecte le principe de ce DSL
+        StateBuilder on = state().named("on")
+				.action()
+					.brick(led).value(SIGNAL.HIGH)
+				.endAction();
+
+        StateBuilder off = state().named("off")
+				.action()
+					.brick(led).value(SIGNAL.LOW)
+				.endAction();
+
         setInitial(off);
-        transitions(transition().from(off).to(on).when(condition().brick(button).value(SIGNAL.HIGH)),
-                      transition().from(on).to(off).when(condition().brick(button).value(SIGNAL.HIGH)));
+
+        transition()
+			.from(off).to(on)
+				.when(condition().brick(button).value(SIGNAL.HIGH))
+		.endTransition();
+
+		transition()
+			.from(on).to(off)
+				.when(condition().brick(button).value(SIGNAL.HIGH))
+		.endTransition();
+
         // on peut aussi imaginer des méthodes states() et bricks()
         exportToWiring();
 

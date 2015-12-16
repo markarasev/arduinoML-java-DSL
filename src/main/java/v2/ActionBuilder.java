@@ -9,10 +9,12 @@ import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
  */
 public class ActionBuilder extends v2.AbstractBuilder<Action> {
 
-    // Constructors
+	private final StateBuilder parentStateBuilder;
 
-    public ActionBuilder() {
+	// Constructors
+	public ActionBuilder(StateBuilder sb) {
         object = new Action();
+		this.parentStateBuilder = sb;
     }
 
     // DSL methods
@@ -26,4 +28,9 @@ public class ActionBuilder extends v2.AbstractBuilder<Action> {
         object.setValue(signal);
         return this;
     }
+
+	public StateBuilder endAction() {
+		this.parentStateBuilder.getObject().getActions().add(this.getObject());
+		return this.parentStateBuilder;
+	}
 }

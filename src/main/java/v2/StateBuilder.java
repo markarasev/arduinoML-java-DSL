@@ -20,6 +20,10 @@ public class StateBuilder extends v2.AbstractBuilder<State> {
         return this;
     }
 
+	public ActionBuilder action() {
+		return new ActionBuilder(this);
+	}
+
     public StateBuilder executing(ActionBuilder actionBuilder) {
         object.getActions().add(actionBuilder.getObject());
         return this;

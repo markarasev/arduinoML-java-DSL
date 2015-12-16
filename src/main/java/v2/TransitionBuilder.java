@@ -7,14 +7,16 @@ import io.github.mosser.arduinoml.kernel.behavioral.Transition;
  * @author Marc Karassev
  */
 public class TransitionBuilder extends v2.AbstractBuilder<Transition> {
+	private final ArduinoML parentArduinoML;
 
-    // Attributes
+	// Attributes
 
     private State from;
 
     // Constructors
 
-    public TransitionBuilder() {
+    public TransitionBuilder(ArduinoML arduinoML) {
+		this.parentArduinoML = arduinoML;	// TODO: maybe there should be an explicitly named Root element?
         object = new Transition();
     }
 
@@ -35,6 +37,11 @@ public class TransitionBuilder extends v2.AbstractBuilder<Transition> {
         object.setValue(conditionBuilder.getObject().getSignal());
         return this;
     }
+
+	public ArduinoML endTransition() {
+		this.parentArduinoML.onTransitionEnd(this);
+		return this.parentArduinoML;
+	}
 
     // Getters and setters
 

@@ -55,7 +55,7 @@ public abstract class ArduinoML {
     }
 
     public v2.ActionBuilder action() {
-        return new v2.ActionBuilder();
+        return new v2.ActionBuilder(currentStateBuilder);
     }
 
     public void setInitial(StateBuilder stateBuilder) {
@@ -75,8 +75,15 @@ public abstract class ArduinoML {
     }
 
     public TransitionBuilder transition() {
-        return new TransitionBuilder();
+        return new TransitionBuilder(this);
     }
+
+	void onTransitionEnd(TransitionBuilder transitionBuilder) {
+		State state = getStateByName(transitionBuilder.getFrom().getName());
+		if (state != null) {
+			state.setTransition(transitionBuilder.getObject());
+		}
+	}
 
     public v2.ConditionBuilder condition() {
         return new v2.ConditionBuilder();
