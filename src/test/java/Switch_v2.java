@@ -6,7 +6,7 @@ import v1.StateBuilder;
 /**
  * @author Marc Karassev
  */
-public class Switch extends ArduinoML {
+public class Switch_v2 extends ArduinoML {
 
     @Override
     public void build() {
@@ -26,8 +26,8 @@ public class Switch extends ArduinoML {
 
     public static void main(String[] args) {
         //Switch switchArduino = arduinoML();
-        Switch switchArduino = new Switch();
-        switchArduino.build();
+        Switch_v2 switchV1Arduino = new Switch_v2();
+        switchV1Arduino.build();
 
         // reprise du DSL Scala de Mosser avec sensor et actuator aulieu de brick et virer executing et les parenthèses de when
         /*
