@@ -1,3 +1,5 @@
+package v1;
+
 import io.github.mosser.arduinoml.kernel.structural.Actuator;
 import io.github.mosser.arduinoml.kernel.structural.Brick;
 import io.github.mosser.arduinoml.kernel.structural.Sensor;

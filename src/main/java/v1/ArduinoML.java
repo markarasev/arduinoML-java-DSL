@@ -1,3 +1,5 @@
+package v1;
+
 import io.github.mosser.arduinoml.kernel.App;
 import io.github.mosser.arduinoml.kernel.behavioral.State;
 import io.github.mosser.arduinoml.kernel.generator.ToWiring;

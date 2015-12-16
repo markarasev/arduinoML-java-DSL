@@ -1,4 +1,5 @@
-import io.github.mosser.arduinoml.kernel.behavioral.Action;
+package v1;
+
 import io.github.mosser.arduinoml.kernel.behavioral.State;
 
 /**

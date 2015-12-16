@@ -1,4 +1,7 @@
 import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
+import v1.ArduinoML;
+import v1.BrickBuilder;
+import v1.StateBuilder;
 
 /**
  * @author Marc Karassev
