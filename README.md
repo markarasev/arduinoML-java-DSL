@@ -1,7 +1,9 @@
 # ArduinoML Java DSL
 
 This repository contains a Java implementation of the [ArduinoML DSL][1].
+
 ArduinoML is a *domain specific language* (DSL) which aims to model simple applications running on Arduino boards. More information can be found at the link above.
+
 This DSL is a group work in the [IDM1 course][5] at Polytech Nice Sophia.
 
 ## Table of contents
@@ -20,11 +22,12 @@ For now, just the first version is completely implemented.
 ### V1
 
 This version goal was to reproduce the Scala ArduinoML DSL written by **Sébastien Mosser** [here][2].
+
 Since it transposes a Scala DSL to a Java one, it of course looses in usability and it does not really fit Java but it was a first try in order to learn how to write a Java DSL.
 
 The following usage example of this DSL can be found [there][3].
 
-```java
+```Java
 BrickBuilder button = aSensor().named("button").boundToPin(9);
 BrickBuilder led = anActuator().named("led").boundToPin(12);
 StateBuilder on = state().named("on").executing(action().brick(led).value(SIGNAL.HIGH));
@@ -125,6 +128,7 @@ The test scenario illustrates the following simple use case:
 The tests generated Arduino code and can be found in [this folder][4].
 
 To run a test scenario, execute the following command:
+
 `mvn exec:java -Dexec.mainClass="$TestClass" -Dexec.classpathScope="test"` where `$TestClass` should be replaced by `SwitchV1` or `SwitchV2`.
 
 ## Links
