@@ -14,7 +14,7 @@ public class SwitchV1 extends ArduinoML {
         BrickBuilder button = aSensor().named("button").boundToPin(9);
         BrickBuilder led = anActuator().named("led").boundToPin(12);
         StateBuilder on = state().named("on").executing(action().brick(led).value(SIGNAL.HIGH));
-        StateBuilder off = state().named("off").executing(action().brick(led).value(SIGNAL.LOW)); // dégueu mais respecte le principe de ce DSL
+        StateBuilder off = state().named("off").executing(action().brick(led).value(SIGNAL.LOW)); // sale mais respecte le principe de ce DSL
         setInitial(off);
         transitions(transition().from(off).to(on).when(condition().brick(button).value(SIGNAL.HIGH)),
                       transition().from(on).to(off).when(condition().brick(button).value(SIGNAL.HIGH)));
