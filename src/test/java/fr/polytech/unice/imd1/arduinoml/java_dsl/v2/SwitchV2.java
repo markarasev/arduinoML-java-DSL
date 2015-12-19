@@ -3,9 +3,9 @@ import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
 import v2.*;
 
 /**
- * @author Marc Karassev
+ * @author Tom Guillermin
  */
-public class Switch_v2 extends ArduinoML {
+public class SwitchV2 extends ArduinoML {
 
     @Override
     public void build() {
@@ -42,8 +42,8 @@ public class Switch_v2 extends ArduinoML {
 
     public static void main(String[] args) {
         //Switch switchArduino = arduinoML();
-        Switch_v2 switchV1Arduino = new Switch_v2();
-        switchV1Arduino.build();
+        SwitchV2 switchV2Arduino = new SwitchV2();
+        switchV2Arduino.build();
 
         // reprise du DSL Scala de Mosser avec sensor et actuator aulieu de brick et virer executing et les parenthèses de when
         /*
