@@ -4,7 +4,7 @@ This repository contains a Java implementation of the [ArduinoML DSL][1].
 
 ArduinoML is a *domain specific language* (DSL) which aims to model simple applications running on Arduino boards. More information can be found at the link above.
 
-This DSL is a group work in the [IDM1 course][5] at Polytech Nice Sophia.
+This DSL is a group work in the [IDM1 course][5] at [Polytech Nice Sophia][7].
 
 ## Table of contents
 
@@ -141,3 +141,4 @@ To run a test scenario, execute the following command:
 [4]: /src/test/java/fr/polytech/unice/imd1/arduinoml/java_dsl
 [5]: http://www.i3s.unice.fr/~mosser/teaching/15_16/dsl/start
 [6]: https://github.com/mosser/ArduinoML-kernel
+[7]: http://www.polytechnice.fr/
